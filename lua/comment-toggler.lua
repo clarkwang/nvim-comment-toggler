@@ -81,7 +81,7 @@ local function toggle_line()
     -- (1, 0)-indexed
     local line_count = vim.api.nvim_buf_line_count(0)
     if row < line_count then
-        vim.cmd('norm j')
+        vim.cmd('norm! j')
         return true
     else
         return false
