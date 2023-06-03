@@ -116,13 +116,17 @@ local function setup(conf)
     --
     -- ft specific
     --
+    local vimcmd = 'augroup comment-toggler--NR3tvB\n'
+    vimcmd = vimcmd .. 'autocmd!\n'
     for ft, spec in pairs(conf.filetypes or {}) do
         g.filetypes[ft] = spec
 
         lua_cmd = string.format("vim.keymap.set('n', '%s', require'comment-toggler'.toggle, { buffer = 0, noremap = true, silent = true })",
                                 spec.key or g.default_key)
-        vim.cmd(string.format('autocmd FileType %s lua %s', ft, lua_cmd) )
+        vimcmd = vimcmd .. string.format('autocmd FileType %s lua %s\n', ft, lua_cmd)
     end
+    vimcmd = vimcmd .. 'augroup END'
+    vim.cmd(vimcmd)
 end
 
 return {
