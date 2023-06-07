@@ -7,7 +7,7 @@ See the [demo video][demo].
 
 [demo]: https://github.com/clarkwang/nvim-comment-toggler/issues/1
 
-# Install/Setup
+# Install/setup
 
 ## Example with [packer.nvim]
 
@@ -59,7 +59,7 @@ plugins = {
 require'lazy'.setup(plugins, { lazy.nvim opts here })
 ~~~
 
-## Manaul
+## Manual
 
 ~~~
 require'comment-toggler'.setup{
